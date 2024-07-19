@@ -1,0 +1,43 @@
+﻿@page
+@model BookShop.Pages.Book.DetailsModel
+@{
+}
+<br />
+
+<h2>Book Edit Page</h2>
+
+<form method="POST">
+    <input type="hidden" name="id" value="@Model.bookInfo.id" />
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Book ID</label>
+        <div class="col-sm-6">
+            <input type="text" readonly  class="form-control" name="bookId" value="@Model.bookInfo.BookID" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Book Title</label>
+        <div class="col-sm-6">
+            <input type="text" readonly class="form-control" name="bookTitle" value="@Model.bookInfo.Title" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">AuthorName</label>
+        <div class="col-sm-6">
+            <input type="text" readonly class="form-control" name="authorName" value="@Model.bookInfo.Author" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Year</label>
+        <div class="col-sm-6">
+            <input type="text" readonly class="form-control" name="year" value="@Model.bookInfo.year" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/book/index" role="button">Back to the Page</a>
+        </div>
+    </div>
+</form>

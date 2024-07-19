@@ -1,0 +1,29 @@
+﻿@page
+@using Microsoft.Data.SqlClient;
+
+<!DOCTYPE html>
+
+@{
+    try
+    {
+        String id = Request.Query["id"];
+        String connectionSring = "Data Source=DELL\\SQLEXPRESS;Initial Catalog=BookShop;Integrated Security=True;TrustServerCertificate=True";
+        using (SqlConnection connection = new SqlConnection(connectionSring))
+        {
+            connection.Open();
+            string sql = "DELETE FROM BookShopTbl WHERE id = @id";
+
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            {
+                command.Parameters.AddWithValue("@id", id);
+                command.ExecuteNonQuery();
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+        //ErrorMessage = ex.Message;
+    }
+    Response.Redirect("/Book/Index");
+
+}

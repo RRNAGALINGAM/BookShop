@@ -1,0 +1,40 @@
+﻿@page
+@model BookShop.Pages.Book.IndexModel
+@{
+}
+
+<br />
+<h2>List of Books</h2>
+<div class="container">
+    <a class="btn btn-primary btn-sm mb-2" href="/Book/Create">Create Book</a>
+
+    <table class="table table-bordered table-hover text-center">
+        <thead>
+            <tr>
+                <th>Book ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Year</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.BooksLists)
+            {
+                <tr>
+                    <td>@item.BookID</td>
+                    <td>@item.Title</td>
+                    <td>@item.Author</td>
+                    <td>@item.year</td>
+                    <td >
+                        <a class="btn btn-success" href="/Book/Details?id=@item.id">Details</a> |
+                        <a class="btn btn-primary" href="/Book/Edit?id=@item.id">Edit</a> |
+                        <a class="btn btn-danger" href="/Book/Delete?id=@item.id" onclick="return confirmDelete();">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
